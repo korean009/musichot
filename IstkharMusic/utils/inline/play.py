@@ -65,7 +65,7 @@ def stream_markup_timer(_, chat_id, played, dur):
         ],
       [
             InlineKeyboardButton(
-                text="• υᴘᴅᴧᴛєs •", url="https://t.me/abt_mwl",
+                text="• υᴘᴅᴧᴛєs •", url="https://t.me/abt_mwl1",
             ),
             InlineKeyboardButton(
                 text="• 𝐒υᴘᴘσꝛᴛ •", url="https://t.me/+bVfr7F--aIg5Zjk9",
@@ -87,7 +87,7 @@ def stream_markup(_, chat_id):
          ],
         [
             InlineKeyboardButton(
-                text="• υᴘᴅᴧᴛєs •", url="https://t.me/abt_mwl",
+                text="• υᴘᴅᴧᴛєs •", url="https://t.me/abt_mwl1",
             ),
             InlineKeyboardButton(
                 text="• 𝐒υᴘᴘσꝛᴛ •", url="https://t.me/+bVfr7F--aIg5Zjk9",
@@ -168,6 +168,7 @@ def slider_markup(_, videoid, user_id, query, query_type, channel, fplay):
     ]
     return buttons
     
+
 
 
 
