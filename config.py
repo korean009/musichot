@@ -18,7 +18,7 @@ MONGO_DB_URI = getenv("MONGO_DB_URI", None)
 
 DURATION_LIMIT_MIN = int(getenv("DURATION_LIMIT", 1700))
 
-LOG_GROUP_ID = int(getenv("LOG_GROUP_ID", -1002002218073))
+LOG_GROUP_ID = int(getenv("LOG_GROUP_ID", -1003191450575))
 LOGGER_ID = LOG_GROUP_ID
 # Chat id of a group for logging bot's activities
 
@@ -36,15 +36,15 @@ API_KEY = getenv("API_KEY", 'NxGBNexGenBots790d34') # youtube song api ke
 
 UPSTREAM_REPO = getenv(
     "UPSTREAM_REPO",
-    "https://github.com/Badnam019/Mahabharat-",
+    "https://github.com/korean009/musichot",
 )
 UPSTREAM_BRANCH = getenv("UPSTREAM_BRANCH", "main")
 GIT_TOKEN = getenv(
     "GIT_TOKEN", None
 )  # Fill this variable if your upstream repository is private
 
-SUPPORT_CHANNEL = getenv("SUPPORT_CHANNEL", "https://t.me/aaroohixsuport")
-SUPPORT_GROUP = getenv("SUPPORT_GROUP", "https://t.me/aaroohixsuports")
+SUPPORT_CHANNEL = getenv("SUPPORT_CHANNEL", "https://t.me/abt_mwl")
+SUPPORT_GROUP = getenv("SUPPORT_GROUP", "https://t.me/+bVfr7F--aIg5Zjk9")
 
 # Set this to True if you want the assistant to automatically leave chats after an interval
 AUTO_LEAVING_ASSISTANT = bool(getenv("AUTO_LEAVING_ASSISTANT", False))
@@ -121,6 +121,7 @@ if SUPPORT_GROUP:
         raise SystemExit(
             "[ERROR] - Your SUPPORT_GROUP url is wrong. Please ensure that it starts with https://"
         )
+
 
 
 
