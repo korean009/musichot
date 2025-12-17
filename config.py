@@ -31,8 +31,8 @@ HEROKU_APP_NAME = getenv("HEROKU_APP_NAME")
 # Get it from http://dashboard.heroku.com/account
 HEROKU_API_KEY = getenv("HEROKU_API_KEY")
 
-API_URL = getenv("API_URL", 'https://api.thequickearn.xyz') #youtube song url
-API_KEY = getenv("API_KEY", '30DxNexGenBots743082') # youtube song api ke 
+API_URL = getenv("API_URL", 'https://tgapi.xbitcode.com') #youtube song url
+API_KEY = getenv("API_KEY", 'xbit_V8kZ9DMNn4iPVWNIATvpbcr-RMDTSC1E') # youtube song api ke 
 
 UPSTREAM_REPO = getenv(
     "UPSTREAM_REPO",
@@ -121,6 +121,7 @@ if SUPPORT_GROUP:
         raise SystemExit(
             "[ERROR] - Your SUPPORT_GROUP url is wrong. Please ensure that it starts with https://"
         )
+
 
 
 
