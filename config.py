@@ -7,8 +7,8 @@ from pyrogram import filters
 load_dotenv()
 
 # Get this value from my.telegram.org/apps
-API_ID = int(getenv("29448785"))
-API_HASH = getenv("599574f6aff0a09ebb76305b58e7e9c2")
+API_ID = int(getenv("38959609"))
+API_HASH = getenv("3eacf7a0c16ee08a3818a838ec781ce7")
 
 # Get your token from @BotFather on Telegram.
 BOT_TOKEN = getenv("BOT_TOKEN")
@@ -123,6 +123,7 @@ if SUPPORT_GROUP:
         raise SystemExit(
             "[ERROR] - Your SUPPORT_GROUP url is wrong. Please ensure that it starts with https://"
         )
+
 
 
 
