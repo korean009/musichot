@@ -1,19 +1,12 @@
 from IstkharMusic import app 
 import asyncio
 import random
-from pyrogram import Client, filters
+from pyrogram import filters
 from pyrogram.enums import ChatType, ChatMemberStatus
-from pyrogram.errors import UserNotParticipant
 
 spam_chats = []
 
-# ========== EMOJI MODE (Future Proof) ========= #
-EMOJI = [
-"🦋🦋🦋🦋🦋","🧚🌸🧋🍬🫖","🥀🌷🌹🌺💐","🌸🌿💮🌱🌵",
-"❤️💚💙💜🖤","💓💕💞💗💖","🌸💐🌺🌹🦋","🍔🦪🍛🍲🥗",
-"🍎🍓🍒🍑🌶️","🧋🥤🧋🥛🍷","🍬🍭🧁🎂🍡","🍨🧉🍺☕🍻"
-]
-
+# ========= GOOD NIGHT TAG ========= #
 # ========= GOOD NIGHT TAG LINES ========= #
 TAGMES = [
 " **➠ ɢᴏᴏᴅ ɴɪɢʜᴛ 🌚** ",
@@ -70,28 +63,29 @@ VC_TAG = [
 "**➠ ɢᴍ ʙᴇᴀsᴛɪᴇ, ʙʀᴇᴀᴋғᴀsᴛ ʜᴜᴀ ᴋʏᴀ... 🍳**",
 ]
 
+
 # ========= ADMIN CHECK ========= #
 async def is_admin(client, chat_id, user_id):
     try:
-        member = await client.get_chat_member(chat_id, user_id)
-        return member.status in (ChatMemberStatus.ADMINISTRATOR, ChatMemberStatus.OWNER)
+        m = await client.get_chat_member(chat_id, user_id)
+        return m.status in (ChatMemberStatus.ADMINISTRATOR, ChatMemberStatus.OWNER)
     except:
         return False
 
 
-# ========= GN TAG ========= #
-@app.on_message(filters.command(["gntag", "tagmember"], prefixes=["/", "@", "#"]))
+# ========= GOOD NIGHT TAG ========= #
+@app.on_message(filters.command(["gntag", "tagmember"]))
 async def mentionall(client, message):
     chat_id = message.chat.id
     
     if message.chat.type == ChatType.PRIVATE:
-        return await message.reply("Ye command sirf group me chalegi baby ❤️")
+        return await message.reply("This command works only in groups ❤️")
 
     if not await is_admin(client, chat_id, message.from_user.id):
-        return await message.reply("Sirf admin tag kar sakta hai baby 😘")
+        return await message.reply("Only admins can use this 😘")
 
     if chat_id in spam_chats:
-        return await message.reply("Pehle wali tagging stop karo 💔")
+        return await message.reply("Stop previous tagging first 💔")
 
     spam_chats.append(chat_id)
 
@@ -102,11 +96,10 @@ async def mentionall(client, message):
         if usr.user.is_bot:
             continue
         
-        # SAFE NAME
         name = (usr.user.first_name or "User").replace("[","").replace("]","")
-        
-        text = f"[{name}](tg://user?id={usr.user.id})\n**{random.choice(TAGMES)}**"
-        await client.send_message(chat_id, text, disable_web_page_preview=True)
+
+        text = f"<a href='tg://user?id={usr.user.id}'>{name}</a>  <b>{random.choice(TAGMES)}</b>"
+        await client.send_message(chat_id, text, disable_web_page_preview=True, parse_mode="html")
         await asyncio.sleep(4)
 
     try:
@@ -115,19 +108,19 @@ async def mentionall(client, message):
         pass
 
 
-# ========= GM TAG ========= #
-@app.on_message(filters.command(["gmtag"], prefixes=["/", "@", "#"]))
+# ========= GOOD MORNING TAG ========= #
+@app.on_message(filters.command(["gmtag"]))
 async def mention_allvc(client, message):
     chat_id = message.chat.id
     
     if message.chat.type == ChatType.PRIVATE:
-        return await message.reply("Sirf group me chalega 😌")
+        return await message.reply("This command works only in groups 😌")
 
     if not await is_admin(client, chat_id, message.from_user.id):
-        return await message.reply("Admin ban ke aana baby 😘")
+        return await message.reply("Only admins can do this 😘")
 
     if chat_id in spam_chats:
-        return await message.reply("Pehle wala stop karo 🔥")
+        return await message.reply("Stop previous tagging first 🔥")
 
     spam_chats.append(chat_id)
 
@@ -139,9 +132,9 @@ async def mention_allvc(client, message):
             continue
         
         name = (usr.user.first_name or "User").replace("[","").replace("]","")
-        
-        text = f"[{name}](tg://user?id={usr.user.id})\n**{random.choice(VC_TAG)}**"
-        await client.send_message(chat_id, text, disable_web_page_preview=True)
+
+        text = f"<a href='tg://user?id={usr.user.id}'>{name}</a>  <b>{random.choice(VC_TAG)}</b>"
+        await client.send_message(chat_id, text, disable_web_page_preview=True, parse_mode="html")
         await asyncio.sleep(4)
 
     try:
@@ -156,14 +149,14 @@ async def cancel_spam(client, message):
     chat_id = message.chat.id
 
     if chat_id not in spam_chats:
-        return await message.reply("Abhi tagging chal hi nahi rahi baby 😘")
+        return await message.reply("Tagging is not running 😘")
 
     if not await is_admin(client, chat_id, message.from_user.id):
-        return await message.reply("Sirf admin rok sakta hai 😏")
+        return await message.reply("Only admins can stop tagging 😏")
 
     try:
         spam_chats.remove(chat_id)
     except:
         pass
     
-    await message.reply("Tagging stop kar di baby ❤️")
+    await message.reply("Tagging stopped ❤️")
