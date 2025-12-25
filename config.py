@@ -45,8 +45,8 @@ GIT_TOKEN = getenv(
 )  # Fill this variable if your upstream repository is private
 
 SUPPORT_CHANNEL = getenv("SUPPORT_CHANNEL", "https://t.me/abt_mwl1")
-SUPPORT_GROUP = getenv("SUPPORT_GROUP", "https://t.me/+bVfr7F--aIg5Zjk9")
-
+SUPPORT_GROUP = getenv("SUPPORT_GROUP", "https://t.me/+8xq1aIXG0qY5MmU1")
+SUPPORT_OWNER = getenv("SUPPORT_OWNEE", "http://t.me/saniya_queen_ff")
 # Set this to True if you want the assistant to automatically leave chats after an interval
 AUTO_LEAVING_ASSISTANT = bool(getenv("AUTO_LEAVING_ASSISTANT", False))
 
@@ -122,6 +122,7 @@ if SUPPORT_GROUP:
         raise SystemExit(
             "[ERROR] - Your SUPPORT_GROUP url is wrong. Please ensure that it starts with https://"
         )
+
 
 
 
